@@ -1,0 +1,62 @@
+/* packageB/pages/accountInfo.wxss */
+.p-t50{
+  padding-top: 55px;
+}
+.nav_header {
+  position: fixed;
+  top: 0; 
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+}
+.nav_li {
+  padding: 10px 0;
+}
+.select_nav {
+  color: #1059e8;
+  border-bottom: 2px solid #1059e8;
+}
+.series_select_li{
+  color: #1059e8;
+  border-bottom: 2px solid #1059e8;
+}
+.scroll-view_H{
+  white-space: nowrap;
+}
+.page-section-spacing {
+  overflow: hidden;
+}
+.scroll-view-item_H{
+  display: inline-block;
+   padding: 15px;
+}
+
+
+.flex_li{
+  width: calc(50% - 10px);
+  padding: 5px;
+  color: #666;
+}
+
+.consume{
+ margin-top: 10px;
+ border-radius: 5px;
+ border: 1px solid #eee;
+}
+.consume .type_title{
+   background-color: #edf7fc;
+   color: #1059e8;
+   border-radius: 5px;
+   margin-right: 15px;
+   padding: 3px 5px;
+   border: 1px solid #1059e8
+}
+.weui-flex .weui-flex__item{
+  padding: 10px;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.weui-flex .weui-flex__item:nth-of-type(4){
+  border-right: none;
+}

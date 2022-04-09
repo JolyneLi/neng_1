@@ -1,0 +1,197 @@
+<!--packageB/pages/accountInfo.wxml-->
+<view class="container p-t50">
+	<view class="nav_header">
+    <view class="page-section-spacing p-0-10">
+		<!-- bindscroll="scroll" -->
+      <scroll-view class="scroll-view_H" scroll-x="true"  style="width: 100%">
+        <view class="scroll-view-item_H {{seriesIndex == index? 'series_select_li':''}}" wx:for="{{navList}}" wx:for-item="series" wx:key="unique" data-index="{{index}}" id="{{series.PCategory}}" bindtap="seriesClick">
+          {{series.Name}}
+        </view>
+      </scroll-view>
+    </view>
+		<!-- <view wx:for="{{navList}}" wx:key="unique" data-index="{{index}}" bindtap="navClick" class="nav_li  {{navIndex == index?'select_nav':''}}">{{item}}</view> -->
+	</view>
+
+<!-- <view> 	 -->
+		<!-- 品项 -->
+		<view wx:if = "{{seriesIndex == 1}}" class="mb-10 bck-fff consume" wx:for="{{treatDataList}}" wx:for-item="product" wx:key="unique">
+			<view class="title p-15 b-b">
+				<text>{{product.productName}}【{{product.ProductID}}】</text>
+				<text wx:if ="{{product.Largess}}" style="color:red" >赠</text>
+			</view>
+			<view class="consume_content">
+				<view class="weui-flex">
+					<view class="weui-flex__item">项目分类</view>
+					<view class="weui-flex__item">{{product.PCategory}}</view>
+					<view class="weui-flex__item">档位</view>
+					<view class="weui-flex__item">{{product.Gear}}</view>
+				</view>
+				<view class="weui-flex">
+					<view class="weui-flex__item">总数量</view>
+					<view class="weui-flex__item">{{product.OriginTotal}}</view>
+					<view class="weui-flex__item">剩余数量</view>
+					<view class="weui-flex__item">{{product.Balance}}</view>
+				</view>
+				<!-- <view class="weui-flex">
+					<view class="weui-flex__item">原价</view>
+					<view class="weui-flex__item">{{product.Price}}</view>
+					<view class="weui-flex__item">折扣比</view>
+					<view class="weui-flex__item">{{product.DisctRate}}</view>
+				</view> -->
+				<!-- <view class="weui-flex">
+					<view class="weui-flex__item">赠送</view>
+					<view class="weui-flex__item">{{product.Largess?'是':'否'}}</view>
+					<view class="weui-flex__item">打板</view>
+					<view class="weui-flex__item">{{product.PatternMaking?'是':'否'}}</view>
+				</view> -->
+				<view class="weui-flex">
+					<view class="weui-flex__item">购买日期</view>
+					<view class="weui-flex__item">{{product.BuyDate }}</view>
+					<view class="weui-flex__item">失效日期</view>
+					<view class="weui-flex__item">{{}}</view>
+				</view>
+				<view class="weui-flex">
+					<view class="weui-flex__item">备注: {{product.Remark}}</view>
+				</view>
+			</view>
+		
+		</view>
+
+		 <!-- 定金 -->
+		<view wx:if = "{{seriesIndex == 0}}" class="mb-10 bck-fff consume" wx:for="{{valueCardList}}" wx:for-item="card" wx:key="unique">
+			<view class="title p-15 b-b">
+				<text>{{card.ProductName}}【{{card.ProductID}}】</text>
+				<text wx:if ="{{product.Largess}}" style="color:red" >赠</text>
+			</view>
+			<view class="consume_content">
+				<view class="weui-flex">
+					<view class="weui-flex__item">金额</view>
+					<view class="weui-flex__item">{{card.OriginalBuyPrice}}</view>
+					<view class="weui-flex__item">剩余金额</view>
+					<view class="weui-flex__item">{{card.TRBalance}}</view>
+				</view>
+				<view class="weui-flex">
+					<view class="weui-flex__item">购买日期</view>
+					<view class="weui-flex__item">{{card.BuyDate}}</view>
+				</view>
+				<view class="weui-flex">
+					<view class="weui-flex__item">医院:{{card.EntityName}}</view>
+				</view>
+				<view class="weui-flex">
+					<view class="weui-flex__item">备注:{{card.Remark }}</view>
+				</view>
+			</view>
+		</view>
+		<!-- 次卡 -->
+		<view wx:if = "{{seriesIndex == 2}}" class="mb-10 bck-fff consume" wx:for="{{countCardList}}" wx:for-item="count" wx:key="unique">
+			<view class="title p-15 b-b">
+				<text>{{count.productName }}【{{count.ProductID}}】</text>
+
+				<text wx:if ="{{count.Largess}}" style="color:red" >赠</text>
+			</view>
+			<view class="consume_content">
+				<view class="weui-flex">
+					<view class="weui-flex__item">总次数</view>
+					<view class="weui-flex__item">{{count.OriginTotal}}</view>
+					<view class="weui-flex__item">剩余次数</view>
+					<view class="weui-flex__item">{{count.Balance}}</view>
+				</view>
+				<view class="weui-flex">
+					<view class="weui-flex__item">赠送</view>
+					<view class="weui-flex__item">{{count.Largess?'是':'否'}}</view>
+					<view class="weui-flex__item">购买日期</view>
+					<view class="weui-flex__item">{{count.BuyDate }}</view>
+				</view>
+				<view class="weui-flex">
+					<view class="weui-flex__item">备注:{{count.Remark }}</view>
+				</view>
+			</view>
+		</view>
+
+	<!-- x年卡 -->
+		<view wx:if = "{{seriesIndex == 3}}" class="mb-10 bck-fff consume" wx:for="{{timeList}}" wx:for-item="time" wx:key="unique">
+			<view class="title p-15 b-b">
+				<text>{{time.productName }}【{{time.ProductID}}】</text>
+
+				<text wx:if ="{{time.Largess}}" style="color:red" >赠</text>
+			</view>
+			<view class="consume_content">
+				<view class="weui-flex">
+					<view class="weui-flex__item">金额</view>
+					<view class="weui-flex__item">{{time.Price}}</view>
+					<view class="weui-flex__item">赠送</view>
+					<view class="weui-flex__item">{{time.Largess?'是':'否'}}</view>
+				</view>
+				<view class="weui-flex">
+					<view class="weui-flex__item">购买日期</view>
+					<view class="weui-flex__item">{{time.BuyDate }}</view>
+					<view class="weui-flex__item">失效日期</view>
+					<view class="weui-flex__item">{{time.BuyDate}}</view>
+				</view>
+				<view class="weui-flex">
+					<view class="weui-flex__item">备注:{{time.Remark }}</view>
+				</view>
+			</view>
+		</view>
+
+   	<!-- 套包 -->
+		<view wx:if = "{{seriesIndex == 4}}" class="mb-10 bck-fff consume" wx:for="{{packCardList}}" wx:for-item="package" wx:key="unique">
+			<view class="title p-15 b-b">
+				<text>{{package.ProductName}}【{{package.ProductID}}】</text>
+
+				<text wx:if ="{{package.Largess}}" style="color:red" >赠</text>
+			</view>
+			<view class="consume_content">
+				<view class="weui-flex">
+					<view class="weui-flex__item">开始日期</view>
+					<view class="weui-flex__item">{{package.BeginDate}}</view>
+					<view class="weui-flex__item">失效日期</view>
+					<view class="weui-flex__item">{{package.EndDate}}</view>
+				</view>
+				<view class="weui-flex">
+					<view class="weui-flex__item">分类</view>
+					<view class="weui-flex__item">{{package.PCategory}}</view>
+					<view class="weui-flex__item"></view>
+					<view class="weui-flex__item"></view>
+				</view>
+			</view>
+			<view class="weui-flex">
+					<view class="weui-flex__item">备注:{{package.Remark}}</view>
+				</view>
+			<view class="t-r col-b p-10-15" data-item="{{package}}" bindtap="packItemClick">更多信息</view>
+		</view>
+
+  	<!-- 先上优惠券 -->
+		<view wx:if = "{{seriesIndex == 5}}" class="mb-10 bck-fff consume" wx:for="{{couponCardList}}" wx:for-item="time" wx:key="unique">
+			<view class="title p-15 b-b">
+				<text>{{time.ProductName}}【{{time.ProductID}}】</text>
+				<text wx:if ="{{time.Largess}}" style="color:red" >赠</text>
+			</view>
+			<view class="consume_content">
+				<view class="weui-flex">
+					<view class="weui-flex__item">金额</view>
+					<view class="weui-flex__item">{{time.OriginalBuyPrice}}</view>
+					<view class="weui-flex__item">剩余金额</view>
+					<view class="weui-flex__item">{{time.TRBalance}}</view>
+				</view>
+				<view class="weui-flex">
+					<view class="weui-flex__item">购买日期</view>
+					<view class="weui-flex__item">{{time.BuyDate}}</view>
+				</view>
+				<view class="weui-flex">
+					<view class="weui-flex__item">医院:{{time.EntityName}}</view>
+				</view>
+				<view class="weui-flex">
+					<view class="weui-flex__item">备注:{{time.Remark }}</view>
+				</view>
+			</view>
+		</view>
+
+ 
+
+   
+	<!-- </view> -->
+
+</view>
+
+
