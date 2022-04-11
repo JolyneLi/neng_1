@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    cici: ' 主分支的动作'
     a:'',//aaa
     b:'',//aaa
     custID:"",
