@@ -9,6 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+a:'', //bbb
+b:'', //bbb
     custID:"",
     productType:"30",
     seriesIndex:'0',
