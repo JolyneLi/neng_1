@@ -11,6 +11,7 @@ Page({
   data: {
     a:'',//aaa
     b:'',//aaa
+    jiahao:'测试覆盖某一次的提交',
     custID:"",
     productType:"30",
     seriesIndex:'0',
@@ -20,6 +21,7 @@ Page({
     timeList:[],
     packCardList:[],
     couponCardList:[],
+    jiahao:'测试覆盖某一次的提交',
     total:0,
     navList: [
       {Name:'定金',PCategory:"30"},
